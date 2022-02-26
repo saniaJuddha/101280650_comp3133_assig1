@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "c8bf9739-23a3-466a-b3ae-cb2624f982b6",
+		"name": "101280650_comp3133_assig1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n     getUsers\r\n     {\r\n        id\r\n        username\r\n        firstname\r\n        lastname\r\n        password\r\n        email\r\n        type\r\n}\r\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserByID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n     getUserByID(id:\"6219d1fd720c3311009215dc\")\r\n     {\r\n        id\r\n        username\r\n        firstname\r\n        lastname\r\n        password\r\n        email\r\n        type\r\n}\r\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserByType",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n     getUserBytype(type:\"admin\")\r\n     {\r\n        id\r\n        username\r\n        firstname\r\n        lastname\r\n        password\r\n        email\r\n        type\r\n}\r\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBooking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n     getBooking\r\n     {\r\n        id\r\nlisting_id\r\nbooking_id\r\nbooking_date\r\nbooking_start\r\nbooking_end\r\nusername\r\n}\r\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookingByID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n     getBookingByID(id:\"621a71507b104e63f8c29637\")\r\n     {\r\n        id\r\nlisting_id\r\nbooking_id\r\nbooking_date\r\nbooking_start\r\nbooking_end\r\nusername\r\n}\r\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookingByusername",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n     getBookingByusername(username:\"pritamworld\")\r\n     {\r\n        id\r\nlisting_id\r\nbooking_id\r\nbooking_date\r\nbooking_start\r\nbooking_end\r\nusername\r\n}\r\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    getListing{\r\n        id\r\nlisting_id\r\nlisting_title\r\ndescription\r\nstreet\r\ncity\r\npostal_code\r\nprice\r\nemail\r\nusername\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListingByID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    getListingByID(id:\"6219be11bd4ed05ed4cbcd51\"){\r\n        id\r\nlisting_id\r\nlisting_title\r\ndescription\r\nstreet\r\ncity\r\npostal_code\r\nprice\r\nemail\r\nusername\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListingByusername",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    getListingByusername(username:\"SANIAJUDDHA\"){\r\n        id\r\nlisting_id\r\nlisting_title\r\ndescription\r\nstreet\r\ncity\r\npostal_code\r\nprice\r\nemail\r\nusername\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListingBycity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    getListingBycity(city:\"toronto\"){\r\n        id\r\nlisting_id\r\nlisting_title\r\ndescription\r\nstreet\r\ncity\r\npostal_code\r\nprice\r\nemail\r\nusername\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListingBypostal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    getListingBypostal(postal_code:\"M1X0Y5\"){\r\n        id\r\nlisting_id\r\nlisting_title\r\ndescription\r\nstreet\r\ncity\r\npostal_code\r\nprice\r\nemail\r\nusername\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  addUser(username\r\n:\r\n\"JAMESSOLOMON\"\r\nfirstname\r\n:\r\n\"james\"\r\nlastname\r\n:\r\n\"solomon\"\r\npassword\r\n:\r\n\"Jam23$\"\r\nemail\r\n:\r\n\"JAMESSOLOMON@GMAIL.COM\"\r\ntype\r\n:\r\n\"customer\"){\r\nusername\r\nfirstname\r\nlastname\r\npassword\r\nemail\r\ntype\r\n  \r\n}\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addListing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    addListing(\r\nlisting_id: \"L0992\"\r\nlisting_title: \"roof top patio\"\r\ndescription: \"roof top patio at amazing downtown location\"\r\nstreet: \"younge st east\"\r\ncity: \"Brampton\"\r\npostal_code: \"M4L1Z3\"\r\nprice: 1572\r\nemail: \"roof@gmail.com\"\r\nusername: \"saniajuddha\"\r\n    ){\r\nlisting_id\r\nlisting_title\r\ndescription\r\nstreet\r\ncity\r\npostal_code\r\nprice\r\nemail\r\nusername\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBooking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    addBooking(\r\n        listing_id: \"L0992\"\r\nbooking_id: \"B2871\"\r\nbooking_date: \"2022-01-24\"\r\nbooking_start: \"2022-01-25\"\r\nbooking_end: \"2022-01-29\"\r\nusername:\"pritamworld\"\r\n    ){\r\n        listing_id\r\nbooking_id\r\nbooking_date\r\nbooking_start\r\nbooking_end\r\nusername\r\n\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

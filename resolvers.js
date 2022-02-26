@@ -51,7 +51,7 @@ exports.resolvers = {
             if (!regex.test(args.password))
                 throw new ApolloError('Password invalid');
 
-            let hashpassword = await bcrypt.hash(args.password, 0);
+            let hashpassword = await bcrypt.hash(args.password, bcrypt.genSaltSync(5));
             console.log(args)
 
             let newUser = new User({
@@ -67,10 +67,13 @@ exports.resolvers = {
             return newUser.save()
         },
         login: async (parent, args) => {
+            console.log(args)
             const userLogin = await User.find({ "username": args.username});
-            const checkPass = await bcrypt.compare(args.password, userLogin.password);
+            console.log(userLogin)
+            const checkPass =  bcrypt.compareSync(args.password, userLogin.password);
+            console.log(checkPass)
             if (userLogin || checkPass) {
-                return Listing.find({})
+                return await Listing.find({})
             } else {
                 throw new ApolloError('invalid password or username')
             }
