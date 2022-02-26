@@ -30,7 +30,7 @@ mongoose.connect(mongodb_atlas_url, {
 //Define Apollo Server
 const server = new ApolloServer({
   typeDefs: TypeDefs.typeDefs,
-  resolvers: Resolvers.resolvers
+  resolvers: Resolvers.resolvers,
 })
 
 //Define Express Server

@@ -1,6 +1,8 @@
 const User = require('./model/userSchema');
 const Listing = require('./model/listingSchema')
 const Booking = require('./model/bookingSchema')
+const bcrypt = require('bcrypt');
+const { ApolloError } = require('apollo-server-express');
 
 exports.resolvers = {
     Query: {
@@ -23,6 +25,12 @@ exports.resolvers = {
         getListingByusername: async (parent, args) => {
             return Listing.find({ "username": args.username })
         },
+        getListingBycity: async (parent, args) => {
+            return Listing.find({ "city": args.city })
+        },
+        getListingBypostal: async (parent, args) => {
+            return Listing.find({ "postal_code": args.posta })
+        },
 
         getBooking: async (parent, args) => {
             return Booking.find({})
@@ -37,13 +45,20 @@ exports.resolvers = {
 
     Mutation: {
         addUser: async (parent, args) => {
+
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$&_])[A-Za-z\d#$&_]{0,6}$/;
+
+            if (!regex.test(args.password))
+                throw new ApolloError('Password invalid');
+
+            let hashpassword = await bcrypt.hash(args.password, 0);
             console.log(args)
 
             let newUser = new User({
                 username: args.username,
                 firstname: args.firstname,
                 lastname: args.lastname,
-                password: args.password,
+                password: hashpassword,
                 email: args.email,
                 type: args.type,
 
@@ -51,7 +66,15 @@ exports.resolvers = {
 
             return newUser.save()
         },
-       
+        login: async (parent, args) => {
+            const userLogin = await User.find({ "username": args.username});
+            const checkPass = await bcrypt.compare(args.password, userLogin.password);
+            if (userLogin || checkPass) {
+                return Listing.find({})
+            } else {
+                throw new ApolloError('invalid password or username')
+            }
+        },
         addListing: async (parent, args) => {
             console.log(args)
 
@@ -76,9 +99,9 @@ exports.resolvers = {
             let newBooking = new Booking({
                 listing_id: args.listing_id,
                 booking_id: args.booking_id,
-                booking_date: args.booking_date,
-                booking_start: args.booking_start,
-                booking_end: args.booking_end,
+                booking_date: Date.parse(args.booking_date),
+                booking_start: Date.parse(args.booking_start),
+                booking_end: Date.parse(args.booking_end),
                 username: args.username,
 
             })
